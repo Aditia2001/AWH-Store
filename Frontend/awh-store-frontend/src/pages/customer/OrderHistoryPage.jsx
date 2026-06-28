@@ -11,10 +11,7 @@ function OrderHistoryPage() {
     try {
       const response = await getOrderHistory();
 
-      const orderData = Array.isArray(response.data)
-        ? response.data
-        : response.data?.data || [];
-
+      const orderData = response.data?.data || response.data || [];
       setOrders(orderData);
     } catch (error) {
       toast.error(error.response?.data?.message || "Gagal mengambil order");
@@ -42,7 +39,6 @@ function OrderHistoryPage() {
             <tr>
               <th>Order ID</th>
               <th>Status</th>
-              <th>Payment</th>
               <th>Total</th>
               <th>Detail</th>
             </tr>
@@ -52,13 +48,9 @@ function OrderHistoryPage() {
             {orders.map((order) => (
               <tr key={order.id}>
                 <td>#{order.id}</td>
-                <td>{order.status || "-"}</td>
-                <td>{order.payment_method || "cash"}</td>
+                <td>{order.status}</td>
                 <td>
-                  Rp{" "}
-                  {Number(
-                    order.total_price || order.total_amount || 0,
-                  ).toLocaleString("id-ID")}
+                  Rp {Number(order.total_amount || 0).toLocaleString("id-ID")}
                 </td>
                 <td>
                   <Link className="table-link" to={`/orders/${order.id}`}>

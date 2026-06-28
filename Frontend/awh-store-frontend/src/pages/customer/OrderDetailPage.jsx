@@ -33,6 +33,8 @@ function OrderDetailPage() {
     return <section className="content-card">Order tidak ditemukan.</section>;
   }
 
+  const items = order.items || [];
+
   return (
     <section className="content-card">
       <h1>Order Detail #{order.id}</h1>
@@ -43,41 +45,38 @@ function OrderDetailPage() {
           Status: <strong>{order.status}</strong>
         </p>
         <p>
-          Payment: <strong>{order.payment_method}</strong>
-        </p>
-        <p>
           Total:{" "}
           <strong>
-            Rp {Number(order.total_price).toLocaleString("id-ID")}
+            Rp {Number(order.total_amount || 0).toLocaleString("id-ID")}
           </strong>
         </p>
       </div>
 
-      <table className="data-table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Qty</th>
-            <th>Price</th>
-            <th>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {(order.details || order.order_details || []).map((item) => (
-            <tr key={item.id}>
-              <td>{item.product?.name || item.product_name || "-"}</td>
-              <td>{item.quantity}</td>
-              <td>Rp {Number(item.price).toLocaleString("id-ID")}</td>
-              <td>
-                Rp{" "}
-                {Number(
-                  item.subtotal || item.price * item.quantity,
-                ).toLocaleString("id-ID")}
-              </td>
+      {items.length === 0 ? (
+        <p>Item order tidak ditemukan.</p>
+      ) : (
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Subtotal</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {items.map((item) => (
+              <tr key={item.id}>
+                <td>{item.product?.name || "-"}</td>
+                <td>{item.quantity}</td>
+                <td>Rp {Number(item.price || 0).toLocaleString("id-ID")}</td>
+                <td>Rp {Number(item.subtotal || 0).toLocaleString("id-ID")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </section>
   );
 }
