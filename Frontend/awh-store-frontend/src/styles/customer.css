@@ -1,0 +1,295 @@
+.customer-navbar {
+  height: 72px;
+  padding: 0 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-menu a,
+.navbar-menu button {
+  font-size: 15px;
+}
+
+.navbar-menu button {
+  border: none;
+}
+
+.customer-main {
+  padding: 32px 60px;
+}
+
+.store-page {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 28px;
+  align-items: start;
+}
+
+.store-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.store-hero {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 44px;
+  border-radius: 24px;
+}
+
+.hero-label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.store-hero h1 {
+  font-size: 40px;
+  max-width: 720px;
+  margin-bottom: 12px;
+}
+
+.store-hero p {
+  font-size: 16px;
+  max-width: 620px;
+  opacity: 0.92;
+}
+
+.product-section,
+.cart-sidebar {
+  background-color: white;
+  padding: 28px;
+  border-radius: 22px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.section-header h2,
+.cart-sidebar h2 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  color: #6b7280;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form input {
+  width: 280px;
+  border: 1px solid #d1d5db;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.search-form button {
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.product-image {
+  height: 170px;
+  background-color: #eef2ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 18px;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.product-info p {
+  min-height: 42px;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.product-meta strong {
+  color: #2563eb;
+  font-size: 16px;
+}
+
+.product-meta span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.cart-sidebar {
+  position: sticky;
+  top: 96px;
+  height: fit-content;
+}
+
+.empty-cart {
+  color: #6b7280;
+  margin-top: 14px;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.cart-item {
+  border: 1px solid #e5e7eb;
+  padding: 14px;
+  border-radius: 14px;
+}
+
+.cart-item-info h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.cart-item-info p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cart-actions button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.cart-actions span {
+  font-weight: 700;
+}
+
+.remove-btn {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+  background-color: #dc2626;
+  color: white;
+  padding: 9px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin: 22px 0;
+  padding-top: 18px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 17px;
+}
+
+.content-card {
+  background-color: white;
+  padding: 28px;
+  border-radius: 22px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin: 8px 0 24px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f9fafb;
+  font-weight: 800;
+}
+
+.table-link {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.order-summary {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 24px;
+}

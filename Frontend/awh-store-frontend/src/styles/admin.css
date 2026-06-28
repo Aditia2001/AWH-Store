@@ -1,0 +1,156 @@
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.admin-sidebar {
+  width: 240px;
+  background-color: #1d4ed8;
+  color: white;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-logo {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-menu a {
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: white;
+}
+
+.admin-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.admin-logout {
+  margin-top: auto;
+  border: none;
+  background-color: white;
+  color: #1d4ed8;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 32px;
+}
+
+.admin-page h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.admin-subtitle {
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.dashboard-card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 18px;
+  border-left: 6px solid #2563eb;
+}
+
+.dashboard-card p {
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h2 {
+  font-size: 26px;
+}
+
+.admin-page-card {
+  background-color: white;
+  padding: 26px;
+  border-radius: 20px;
+}
+
+.admin-page-card h2 {
+  margin-bottom: 20px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f9fafb;
+  font-weight: 800;
+}
+
+.admin-product-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.btn-secondary {
+  border: 1px solid #2563eb;
+  background-color: white;
+  color: #2563eb;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small-edit {
+  border: none;
+  background-color: #f59e0b;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.btn-small-delete {
+  border: none;
+  background-color: #dc2626;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+}
