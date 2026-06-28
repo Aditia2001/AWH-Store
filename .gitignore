@@ -1,0 +1,16 @@
+# Backend
+Backend/**/vendor/
+Backend/**/.env
+Backend/**/storage/logs/*.log
+Backend/**/bootstrap/cache/*.php
+
+# Frontend
+Frontend/**/node_modules/
+Frontend/**/dist/
+Frontend/**/.env
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/S
