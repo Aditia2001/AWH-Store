@@ -327,22 +327,16 @@
           "response": []
         },
         {
-          "name": "Products Search",
+          "name": "Search Products",
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/products?search=asus",
-              "protocol": "http",
+              "raw": "{{base_url}}/products?search=asus",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
-                "api",
                 "products"
               ],
               "query": [
@@ -447,7 +441,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"items\": [\r\n    {\r\n      \"product_id\": {{product_id}},\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}",
+              "raw": "{\r\n  \"items\": [\r\n    {\r\n      \"product_id\": {{product_id}},\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}",
               "options": {
                 "raw": {
                   "language": "json"

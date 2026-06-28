@@ -43,7 +43,7 @@ class OrderService
             $order = $this->orderRepository->createOrder([
                 'user_id' => $userId,
                 'total_amount' => $totalAmount,
-                'status' => 'completed',
+                'status' => 'pending',
             ]);
 
             foreach ($orderItems as $item) {
@@ -71,4 +71,4 @@ class OrderService
     {
         return $this->orderRepository->findById($id, $userId);
     }
-}
+} 
