@@ -1,231 +1,110 @@
-# AWH Store API
+# AWH Store - Fullstack Developer Take Home Test
 
-Backend REST API developed for the **PT. Adhikari Inovasi Indonesia (AWH) Fullstack Developer Take Home Test**.
+AWH Store is a Fullstack web application developed for the **PT. Adhikari Inovasi Indonesia (AWH) Fullstack Developer Take Home Test**.
 
-The application is built using **Laravel 12** and follows a clean architecture by implementing the **Repository Pattern**, **Service Layer**, and **Dependency Injection**. Authentication is handled using **JWT**, while API responses are standardized through a custom `ApiResponse` helper.
+The project consists of:
 
----
+- **Backend** built with Laravel 12 REST API
+- **Frontend** built with React + Vite
 
-## Overview
-
-The API provides features for managing products, customer checkout, order history, and sales reports with role-based authorization.
-
-### Available Roles
-
-- **Admin**
-  - Manage products (CRUD)
-  - View sales reports
-
-- **Customer**
-  - Browse products
-  - Checkout products
-  - View order history
-  - View order details
-
-  ***
-
-## Features
-
-### Authentication
-
-- User Registration
-- JWT Login
-- Logout
-- Get Authenticated User
-
-### Product Management
-
-- Create Product
-- Update Product
-- Delete Product
-- Product Listing
-- Product Detail
-- Product Search
-- Pagination
-
-### Order Management
-
-- Checkout
-- Order History
-- Order Detail
-
-### Reporting
-
-- Sales Summary
-- Top Selling Products
-- Recent Orders
-
-### Security
-
-- JWT Authentication
-- Role-based Authorization
-- Request Validation
-- Database Transactions
+The backend follows a layered architecture using **Repository Pattern**, **Service Layer**, and **Dependency Injection**, while authentication is implemented using **JWT Authentication**.
 
 ---
 
-## Tech Stack
+# Tech Stack
 
-| Category             | Technology                           |
-| -------------------- | ------------------------------------ |
-| Backend Framework    | Laravel 12                           |
-| Language             | PHP 8.2+                             |
-| Database             | MySQL                                |
-| Authentication       | JWT (php-open-source-saver/jwt-auth) |
-| API Style            | REST API                             |
-| Dependency Injection | Laravel Service Container            |
-| Design Pattern       | Repository Pattern, Service Layer    |
-| ORM                  | Eloquent ORM                         |
-| Validation           | Form Request Validation              |
-| Version Control      | Git                                  |
-| API Testing          | Postman                              |
+## Backend
+
+- Laravel 12
+- PHP 8.2+
+- MySQL
+- JWT Authentication (php-open-source-saver/jwt-auth)
+- Repository Pattern
+- Service Layer
+- Dependency Injection
+- Eloquent ORM
+
+## Frontend
+
+- React 19
+- Vite
+- Axios
+- React Router DOM
+- React Hook Form
+- React Hot Toast
+- Context API
+- Plain CSS
+
+## Development Tools
+
+- Git
+- Postman
+- Visual Studio Code
 
 ---
 
-## Architecture
-
-This project follows a layered architecture to separate responsibilities between business logic and data access.
+# Project Structure
 
 ```text
-Client
-   │
-   ▼
-Controller
-   │
-   ▼
-Service
-   │
-   ▼
-Repository Interface
-   │
-   ▼
-Repository
-   │
-   ▼
-Eloquent Model
-   │
-   ▼
-MySQL
+Backend/
+└── awh-store-api
+
+Frontend/
+└── awh-store-frontend
+
+docs/
+├── AWH Store API.postman_collection.json
+└── AWH Store Local.postman_environment.json
 ```
 
-### Layer Responsibilities
-
-#### Controller
-
-- Receives HTTP requests
-- Calls the appropriate service
-- Returns standardized API responses
-
-#### Service
-
-- Contains business logic
-- Coordinates application workflow
-- Does not access the database directly
-
-#### Repository
-
-- Handles database queries
-- Encapsulates Eloquent operations
-- Implements repository interfaces
-
-#### Model
-
-- Represents database entities
-- Manages relationships using Eloquent ORM
-
 ---
 
-## Design Decisions
+# Installation
 
-The project intentionally applies the following architectural decisions:
-
-- Service Layer does not use interfaces to keep the business layer simple.
-- Repository Layer uses interfaces to support dependency injection and loose coupling.
-- ProductRepository extends BaseRepository to reuse common CRUD operations.
-- AuthRepository, OrderRepository, and ReportRepository do not extend BaseRepository because they contain custom business queries rather than generic CRUD operations.
-- All API responses are standardized using a custom `ApiResponse` helper.
-
----
-
-## Project Structure
-
-```text
-app
-├── Helpers
-│   └── ApiResponse.php
-│
-├── Http
-│   ├── Controllers
-│   └── Requests
-│
-├── Interfaces
-│
-├── Models
-│
-├── Repositories
-│   ├── BaseRepository.php
-│   ├── AuthRepository.php
-│   ├── ProductRepository.php
-│   ├── OrderRepository.php
-│   └── ReportRepository.php
-│
-├── Services
-│
-└── Providers
-```
-
-The project structure is organized using the Repository Pattern and Service Layer to improve maintainability, readability, and scalability.
-
----
-
-## Installation
-
-Clone the repository:
+## Clone Repository
 
 ```bash
 git clone <repository-url>
 ```
 
-Navigate to the backend project:
+---
+
+## Backend Setup
+
+Go to backend project
 
 ```bash
-cd backend/awh-store-api
+cd Backend/awh-store-api
 ```
 
-Install dependencies:
+Install dependencies
 
 ```bash
 composer install
 ```
 
-Copy the environment file:
+Copy environment file
 
 ```bash
 cp .env.example .env
 ```
 
-Generate application key:
+Generate application key
 
 ```bash
 php artisan key:generate
 ```
 
-Generate JWT secret:
+Generate JWT secret
 
 ```bash
 php artisan jwt:secret
 ```
 
----
-
-## Environment Variables
-
-Configure your `.env` file.
-
-Example:
+Configure your database inside `.env`
 
 ```env
-APP_NAME=AWH Store API
+APP_NAME=AWH Store
 APP_ENV=local
 APP_DEBUG=true
 
@@ -239,39 +118,47 @@ DB_PASSWORD=
 JWT_SECRET=your_generated_secret
 ```
 
----
-
-## Database Migration
-
-Run database migrations:
+Run migration
 
 ```bash
 php artisan migrate
 ```
 
-If seeders are available:
+---
+
+## Frontend Setup
+
+Go to frontend project
 
 ```bash
-php artisan db:seed
+cd ../awh-store-frontend
 ```
 
-Or:
+Install dependencies
 
 ```bash
-php artisan migrate --seed
+npm install
+```
+
+Create `.env`
+
+```env
+VITE_API_URL=http://127.0.0.1:8000/api
 ```
 
 ---
 
-## Running the Application
+# Running the Application
 
-Start the development server:
+## Run Backend
 
 ```bash
+cd Backend/awh-store-api
+
 php artisan serve
 ```
 
-The API will be available at:
+Backend URL
 
 ```
 http://127.0.0.1:8000
@@ -279,150 +166,68 @@ http://127.0.0.1:8000
 
 ---
 
+## Run Frontend
+
+```bash
+cd Frontend/awh-store-frontend
+
+npm run dev
+```
+
+Frontend URL
+
+```
+http://localhost:5173
+```
+
 ---
 
-## API Documentation
+# API Documentation
 
-API testing and documentation are provided through Postman.
-
-### Postman Collection
+API documentation is available through the provided Postman Collection.
 
 ```
-docs/AWH Store API.postman_collection.json
-```
-
-### Postman Environment
-
-```
-docs/AWH Store Local.postman_environment.json
+docs/
+├── AWH Store API.postman_collection.json
+└── AWH Store Local.postman_environment.json
 ```
 
 Import both files into Postman before testing the API.
 
 ---
 
-## API Endpoints
-
-### Authentication
-
-| Method | Endpoint           | Access        |
-| ------ | ------------------ | ------------- |
-| POST   | /api/auth/register | Public        |
-| POST   | /api/auth/login    | Public        |
-| GET    | /api/auth/me       | Authenticated |
-| POST   | /api/auth/logout   | Authenticated |
-
-### Products
-
-| Method | Endpoint           | Access |
-| ------ | ------------------ | ------ |
-| GET    | /api/products      | Public |
-| GET    | /api/products/{id} | Public |
-| POST   | /api/products      | Admin  |
-| PUT    | /api/products/{id} | Admin  |
-| DELETE | /api/products/{id} | Admin  |
-
-### Orders
-
-| Method | Endpoint             | Access   |
-| ------ | -------------------- | -------- |
-| POST   | /api/orders/checkout | Customer |
-| GET    | /api/orders          | Customer |
-| GET    | /api/orders/{id}     | Customer |
-
-### Reports
-
-| Method | Endpoint           | Access |
-| ------ | ------------------ | ------ |
-| GET    | /api/reports/sales | Admin  |
-
----
+# Available Features
 
 ## Authentication
 
-This project uses **JWT Authentication**.
+- Register
+- Login
+- Logout
+- Get Authenticated User
 
-To access protected endpoints:
+## Product
 
-1. Login using:
+- Product List
+- Product Detail
+- Product Search
+- Create Product
+- Update Product
+- Delete Product
 
-```
-POST /api/auth/login
-```
+## Order
 
-2. Copy the JWT token.
+- Checkout
+- Order History
+- Order Detail
 
-3. Send the token using the Authorization header.
+## Report
 
-Example:
-
-```
-Authorization: Bearer <your_token>
-```
-
----
-
-## Response Format
-
-All endpoints return a standardized response using the custom `ApiResponse` helper.
-
-Example success response:
-
-```json
-{
-  "success": true,
-  "message": "Request completed successfully.",
-  "data": {}
-}
-```
-
-Example error response:
-
-```json
-{
-  "success": false,
-  "message": "Something went wrong."
-}
-```
+- Sales Report
 
 ---
 
-## Database Schema
+# Author
 
-### users
+**Aditia Rafli Ilyasa**
 
-- id
-- name
-- email
-- password
-- role
-
-### products
-
-- id
-- name
-- description
-- price
-- stock
-- image
-
-### orders
-
-- id
-- user_id
-- total_amount
-- status
-
-### order_items
-
-- id
-- order_id
-- product_id
-- quantity
-- price
-
-## Author
-
-Developed by **Aditia Rafli Ilyasa**
-
-As part of the **PT. Adhikari Inovasi Indonesia (AWH) Fullstack Developer Take Home Test**.
+Fullstack Developer Take Home Test – PT. Adhikari Inovasi Indonesia (AWH)
